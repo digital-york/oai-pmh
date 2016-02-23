@@ -228,6 +228,7 @@ module BlacklightOaiProvider
 
     # is the given record a member of the given static set?
     def is_set_member?(record, set_spec)
+      static_set_eval_subqueries
       if @options[:sets]
         @options[:sets].each do |k, v|
           if v[:set_spec] && v[:set_spec] == set_spec
