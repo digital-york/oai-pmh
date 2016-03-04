@@ -11,10 +11,10 @@ class CatalogController < ApplicationController
     # which has been included in this application at /lib/blacklight_oai_provider/
     config.oai = {
       :provider => {
-        :repository_name => 'OAI-PMH Test',
-        :repository_url => 'http://yodldev1.york.ac.uk/oaipmh/oai',
+        :repository_name => 'OAI-PMH interface for Digital Library',
+        :repository_url => 'http://dliboai0.york.ac.uk/oai',
         :record_prefix => 'oai:york.ac.uk',
-        :admin_email => 'fergus.a.mcglynn@york.ac.uk'
+        :admin_email => 'julie.allinson@york.ac.uk'
       },
       :document => {
         #:timestamp => 'timestamp',
@@ -63,5 +63,6 @@ class CatalogController < ApplicationController
         }
       }
     }
+    Rails.logger.debug("@request => #{@request.inspect}")
   end
 end 
