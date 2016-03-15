@@ -376,7 +376,7 @@ module BlacklightOaiProvider
             # remove http://purl.org/eprint/type/ScholarlyText from dc.type
             record["dc.type"].delete("http://purl.org/eprint/type/ScholarlyText")
             # if dc.type contains any of the following patterns
-            patterns = ["^Book$", "^Conference", "^Article$", "^Journal Article$", "^Chapter$", "^Book Chapter$"]
+            patterns = ["^Book$", "^Conference", "^Article$", "^Journal Article$", "^Chapter$", "^Book Chapter$", "^Journal$"]
             match = false
             patterns.each do |pat|
               record["dc.type"].each do |type|
