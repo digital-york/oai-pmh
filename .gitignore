@@ -16,4 +16,8 @@
 /tmp
 .lock
 
+# Ignore intellij files - these should go in global gitignore
+*.iml
+.idea*
+
 

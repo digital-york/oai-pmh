@@ -63,6 +63,5 @@ class CatalogController < ApplicationController
         }
       }
     }
-    Rails.logger.debug("@request => #{@request.inspect}")
   end
 end 
