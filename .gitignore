@@ -14,10 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-.lock
+*.lock
+*.swp
 
 # Ignore intellij files - these should go in global gitignore
 *.iml
 .idea*
-
-
