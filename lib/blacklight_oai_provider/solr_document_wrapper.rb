@@ -341,26 +341,17 @@ module BlacklightOaiProvider
           trans.each do |k,v|
             # if this record has a dc:type that matches this transformation 
             if (record["dc.type"].include?(k))
-              # if dc.identifier like york:xxxx
-              if record.key?("dc.identifier")
-                record["dc.identifier"].each_index do |i|
-                  if (record["dc.identifier"][i] =~ /^york:[0-9]+$/)
-                    # change dc.identifier to have the type-specific base url preceding the identifier
-                    if (v.key? :base_url)
-                      record["dc.identifier"][i] = v[:base_url] + record["dc.identifier"][i]
-                    else
-                      # default case - set dc.identifier to have generic base url preceding identifier
-                      record["dc.identifier"][i] = default_baseurl + record["dc.identifier"][i]        
-                    end
-                  end
-                end
-              # otherwise, if dc.identifier doesn't exist at all, create one using the appropriate baseurl and PID
-              else
+              # if dc.identifier doesn't already have a resource URL as one of its elements
+              if (record["dc.identifier"] ||= []).grep(/^https:\/\/dlib\.york\.ac\.uk\/yodl\/app/).none?
+                # append a URL (base_url + PID) to the dc.identifier array 
+                # if a base url is specified for this type, use that, otherwise use the default base url
+                base_url = default_baseurl
                 if (v.key? :base_url)
-                  record["dc.identifier"] = [v[:base_url] + record["PID"]]
-                else
-                  record["dc.identifier"] = [default_baseurl + record["PID"]]
+                  base_url = v[:base_url]
                 end
+                record["dc.identifier"] << base_url + record["PID"]
+                # and remove any "york:1234" values from dc.identifier
+                record["dc.identifier"].reject!{ |x| x =~ /^york:[0-9]+$/ }
               end
             end
             # change dc.type to something more readable/simple
