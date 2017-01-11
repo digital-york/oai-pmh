@@ -39,7 +39,7 @@ class CatalogController < ApplicationController
                            "http://purl.org/dc/dcmitype/Software", 
                            "http://purl.org/dc/dcmitype/Dataset"]
             },
-            {"acl.allowed.roles" => ["public"],
+            {"acl.allowed.roles" => ["york", "public"],
              "dc.type" => ["http://purl.org/dc/dcmitype/Collection"],
              "dc2.source" => ["primo"]
             },

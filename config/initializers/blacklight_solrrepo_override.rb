@@ -40,6 +40,8 @@ Blacklight::SolrRepository.class_eval do
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       request = Net::HTTP::Get.new(uri.request_uri)
       response = http.request(request)
+      Rails.logger.debug("response_code: #{response.code}")
+      Rails.logger.debug("response: #{response.to_hash.inspect}")
       ezproxy_cookie = response['set-cookie'].split('; ')[0]
       # store that cookie in the cache
       Rails.cache.fetch("ezproxy_cookie", expires_in: 1.hours) do
@@ -48,5 +50,6 @@ Blacklight::SolrRepository.class_eval do
     end    
     ezproxy_cookie
   end
+
 end
 

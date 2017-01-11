@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.2'
+#gem 'rails', '4.0.2'
+gem 'rails', '>= 4.1'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -18,7 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -47,17 +48,20 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # FAM additions for blacklight
-gem 'blacklight', ">= 5.3.0"
+gem 'blacklight', "5.14.0"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-
-
 gem "rsolr", "~> 1.0.6"
-gem "devise"
+gem "devise", "~> 3"
 gem "devise-guests", "~> 0.3"
 gem "blacklight-marc", "~> 5.0"
 
 # FAM addition for ruby-oai https://github.com/code4lib/ruby-oai
 gem 'oai'
-# FAM addition for blacklight-oai-provider https://github.com/cbeer/blacklight_oai_provider 
-#gem "blacklight_oai_provider", :path => "/home/vagrant/blacklight/bloaiprovider/blacklight_oai_provider-master"
 
+# FAM hacks to resolve bundle dependency issues
+gem "autoprefixer-rails", "~> 5"
+gem "deprecation", "~> 0.2"
+#gem "sprockets-rails", :require => 'sprockets/rails/version'
+gem "sprockets-rails", ">= 2.1.3"
+gem "sprockets", "~> 2"
+gem "mime-types", "~> 2"
