@@ -14,7 +14,7 @@ class CatalogController < ApplicationController
         :repository_name => 'OAI-PMH interface for Digital Library',
         :repository_url => 'http://dliboai0.york.ac.uk/oai',
         :record_prefix => 'oai:york.ac.uk',
-        :admin_email => 'julie.allinson@york.ac.uk'
+        :admin_email => 'infodir-digital@york.ac.uk'
       },
       :document => {
         #:timestamp => 'timestamp',
