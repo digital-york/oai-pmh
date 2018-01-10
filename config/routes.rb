@@ -1,7 +1,10 @@
 #ALLOW_DOTS ||= /[a-zA-Z0-9_.:\/]+/
 App1::Application.routes.draw do
   Blacklight::Marc.add_routes(self)
-  root to: "catalog#index"
+  root to: "catalog#oai"
+
+  #match 'users', to: 'catalog#oai', as: 'oai_provider_root', via: [:get, :post]
+
   #resources :catalog, :only => [:show, :update], :constraints => { :id => ALLOW_DOTS, :format => false }
   #blacklight_for :catalog, :constraints => {:id => /.*/}
   #blacklight_for :catalog, :format => false
@@ -12,7 +15,7 @@ App1::Application.routes.draw do
   # (copied from Hull) OAI-PMH Harvesting being routes to /oai
   match 'oai', to: 'catalog#oai', as: 'oai_provider', via: [:get, :post]
 
-  devise_for :users
+  #devise_for :users
   #constraints :id => /.+/ do
   #  Blacklight.add_routes(self)
   #end
