@@ -52,7 +52,7 @@ end
 gem 'blacklight', "5.14.0"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem "rsolr", "~> 1.0.6"
-gem "devise", "~> 3"
+gem "devise", "~> 4"
 gem "devise-guests", "~> 0.3"
 gem "blacklight-marc", "~> 5.0"
 
