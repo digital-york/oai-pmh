@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-#gem 'rails', '4.0.2'
-gem 'rails', '>= 4.1'
-#gem 'rails', '~> 5.0.5'
+gem 'rails', '~> 4.2.0'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.0'
@@ -51,10 +49,10 @@ end
 # FAM additions for blacklight
 gem 'blacklight', "5.14.0"
 gem 'tzinfo-data', platforms: [:mingw, :mswin]
-gem "rsolr", "~> 1.0.6"
-gem "devise", "~> 3"
-gem "devise-guests", "~> 0.3"
-gem "blacklight-marc", "~> 5.0"
+gem 'rsolr', '~> 1.0.6'
+gem 'devise', '~> 4.7.1'
+gem 'devise-guests', '~> 0.3'
+gem 'blacklight-marc', '~> 5.0'
 
 # FAM addition for ruby-oai https://github.com/code4lib/ruby-oai
 gem 'oai'
@@ -62,7 +60,7 @@ gem 'oai'
 # FAM hacks to resolve bundle dependency issues
 gem "autoprefixer-rails", "~> 5"
 gem "deprecation", "~> 0.2"
-#gem "sprockets-rails", :require => 'sprockets/rails/version'
-gem "sprockets-rails", ">= 2.1.3"
-gem "sprockets", "~> 2"
+gem "sprockets-rails" , "~> 2.3.3"
+gem "sprockets", "~> 2.12.5"
 gem "mime-types", "~> 2"
+
